@@ -10,7 +10,7 @@ import Animated, {
 import { useNavigation } from "@react-navigation/native";
 
 export default function LoginScreen() {
-  const Navigation = useNavigation();
+  const navigation = useNavigation();
   return (
     <View className="bg-white h-full w-full">
       {/* background image */}
@@ -48,14 +48,14 @@ export default function LoginScreen() {
         <View className="flex items-center mx-4 space-y-4">
           <Animated.View
             entering={FadeInDown.duration(1000).springify()}
-            className="bg-black/5 p-5 rounded-2xl w-full"
+            className="bg-black/5 p-3 rounded-2xl w-full"
           >
             <TextInput placeholder="Email" placeholderTextColor={"gray"} />
           </Animated.View>
 
           <Animated.View
             entering={FadeInDown.delay(200).duration(1000).springify()}
-            className="p-5 rounded-2xl bg-black/5 w-full mb-3"
+            className="p-3 rounded-2xl bg-black/5 w-full mb-3"
           >
             <TextInput
               placeholder="Password"
@@ -79,7 +79,7 @@ export default function LoginScreen() {
           >
             <Text>Don't have an account? </Text>
 
-            <TouchableOpacity>
+            <TouchableOpacity onPress={() => navigation.push("Signup")}>
               <Text className="text-sky-600">SignUp</Text>
             </TouchableOpacity>
           </Animated.View>
